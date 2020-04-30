@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<div class="col-sm-12 col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h5>{{report.text}}</h5>
+            <p>{{report.project}}</p>
+            <p>{{report.ministry}}</p>
+            <hr>
+            <p>{{report.submitted_by}}</p>
+            <p>{{report.phone}}</p>
+            <p>{{report.status}}</p>
+            <hr> {% if report.picture %}
+            <img class="img-responsive" src="{{ report.picture.url }}" height="400" width="1000"> {% endif %}
+            </a>
+            <hr>
+
+            {% if user.is_authenticated %}
+            {% if user.is_pmp or user.is_superuser %}
+            <a class="btn btn-danger" href="{% url 'project:report_delete' report.id %}">Delete</a>
+            <a class="btn btn-info" href="{% url 'project:report_update' report.id %}">Update</a>
+            {% endif %}
+            {% endif %}
+            
+        </div>
+    </div>
+</div>{% endblock %}

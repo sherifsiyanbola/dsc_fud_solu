@@ -1,0 +1,78 @@
+{% extends 'base.html' %} {% block content %}
+<div class="col-sm-12 col-md-12">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+                <h5><strong>Project: {{project.title}}</strong></h5>
+                </div>
+        <div class="panel-body">
+            <p>Description: {{project.description}}</p>
+            <p>Ministry: {{project.ministry}}</p>
+            <p>LGA: {{project.lga}}</p>
+            <p>Date Submitted: {{project.date}}</p>
+            <p>Status: {{project.status}}</p>
+            <p>Progress: {{project.progress}}%</p>
+            <p>Budget Year: {{project.budget_year}}</p>
+            {% if not user.is_authenticated %}
+            <p>Status: {{project.status}}</p>
+            <div class="alert alert-info" role="alert">
+            use your phone number as your tracking code, to check status of your need
+            </div>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            {% if user.is_pmp or user.is_superuser %}
+            <a class="btn btn-danger" href="{% url 'project:project_delete' project.id %}">Delete</a>
+            <a class="btn btn-info" href="{% url 'project:pmp_project_update' project.id %}">Update</a>
+            {% endif %}
+
+
+            {% if user.is_ministryuser or user.is_superuser %}
+            <a class="btn btn-info" href="{% url 'project:ministry_project_update' project.id %}">Update</a>
+            {% endif %}
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+</div>
+
+{% if  user.is_authenticated %}
+<div class="col-sm-12 col-md-12">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h5><strong>Comments ({{project.projectCommentCount}})</strong></h5>
+</div>
+<div class="panel-body">
+
+<div class="table-responsive">
+                <table class="table table-bordered table-condensed" id="table_id">
+                    <thead>
+                        <tr><th>S/N</th>
+                            <th>Text</th>
+                            <th>Created</th>
+                            <th>Submitted By</th>
+                            <th>Phone No.</th>
+                            <th>Status</th>
+                            <th>image</th>
+                       </tr>
+                    </thead>
+                    <tbody>
+                        {% for comment in project.comments.all %}
+                        <tr>
+                        <td>{{forloop.counter}}</td>
+                            <td><a href="{% url 'project:comment_detail' comment.id %}">{{comment.text|truncatewords:"8"}}</a></td>
+                           <td>{{comment.created}}</td>
+                            <td>{{comment.submittedBy}}</td>
+                            <td>{{comment.submittedBy.phone}}</td>
+                            <td>{{comment.status}}</td>
+                            <td><a href="/media/{{comment.picture}}">Image</a></td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+       </div>
+</div>
+</div>
+</div>
+{% endif %}
+{% endblock %}

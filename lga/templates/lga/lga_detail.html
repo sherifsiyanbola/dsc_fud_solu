@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-sm-12 col-md-8 col-md-offset-2">
+<div class="panel panel-inverse">
+<div class="panel-heading">
+<h3>LGA Detail</h3>
+</div>
+<div class="panel-body">
+<h4>Name:   {{lga.name}}</h4>
+<h4>Projects:  {{lga.lgaProjectCount}}</h4>
+<a class="btn btn-info btn-lg" href="{% url 'lga:lga_update' lga.id %}">Edit</a>
+<a class="btn btn-danger btn-lg" href="{% url 'lga:lga_delete' lga.id %}">Delete</a>
+<br><br>
+<div class="panel panel-default">
+                <div class="panel-heading">
+                    <h5><b>Projects</b></h5>
+                </div>
+                <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Title</th>
+                                <th>Description</th> 
+                                <th>Submitted by</th>
+                                 <th>Date</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for project in lga.projects.all %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{project.title}}</td>
+                                <td>{{project.description}}</td>
+                                <td>{{project.submitted_by}}</td>
+                                <td>{{project.date}}</td>
+                                {% endfor %}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+</div>
+{% endblock content %}

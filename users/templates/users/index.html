@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% block content%}
+<div class="col-sm-12 col-md-8 col-md-offset-2">
+    <div class="panel panel-inverse">
+        <div class="panel-body">
+
+
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn btn btn-default">Add New</button>
+  <div id="myDropdown" class="dropdown-content">
+     <a class="btn btn-primary" href="{% url 'users:ministryuser_add' %}" role="button">Ministry User</a>
+     <a class="btn btn-primary" href="{% url 'users:due_process_add' %}" role="button">Due Process</a>
+     <a class="btn btn-primary" href="{% url 'users:budget_user_add' %}" role="button">Budget</a>
+     <a class="btn btn-primary" href="{% url 'users:governor_add' %}" role="button">Governor</a>
+     <a class="btn btn-primary" href="{% url 'users:pmp_add' %}" role="button">PMP</a>
+  </div>
+</div>
+        </div>
+        </div>
+        <div class = "panel panel-inverse">
+        <div class="panel-heading">
+            <h4><b>List of Users</b></h4>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-condensed" id="table_id">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>User Group</th>
+                            <th>Ministry</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    {% if users %}
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td> {{user.first_name}}&nbsp;{{user.last_name}}</td>
+                            <td>{{user.username}}</td>
+                            <td>{{user.user_type}}</td>
+                            {% if user.ministry %}
+                            <td>{{user.ministry}}</td>
+                            {% else %}
+                            <td>-</td>
+                            {% endif %}
+                            <td><a href="{% url 'users:user_edit' user.id %}">Edit</a></td>
+                            <td><a href="{% url 'users:user_delete' user.id %}">Delete</a></td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        </div>
+    </div>
+    </div>
+    {% else %}
+    <p>There is no users Available</p>
+    {% endif %} 
+    
+    
+    <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+    {% endblock %}

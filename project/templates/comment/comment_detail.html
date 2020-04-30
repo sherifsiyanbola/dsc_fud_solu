@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block content %}
+<div class="col-sm-12 col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h5>{{comment.text}}</h5>
+            <p>{{comment.project}}</p>
+            <hr>
+            <p>{{comment.submitted_by}}</p>
+            <p>{{comment.phone}}</p>
+            <p>{{comment.status}}</p>
+            <hr> {% if comment.picture %}
+            <img class="img-responsive" src="{{ comment.picture.url }}" height="400" width="1000"> {% endif %}
+            </a>
+            <hr>
+            {% if user.is_authenticated %}
+            {% if user.is_pmp or user.is_superuser %}
+            <a href="{% url  'project:comment_delete' comment.id %}" class="btn btn-danger btn-lg">Delete</a>
+            <a href="{% url  'project:comment_update' comment.id %}" class="btn btn-info btn-lg">Update</a>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

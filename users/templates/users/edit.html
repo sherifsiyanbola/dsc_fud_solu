@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %}
+<div class="col-sm-12 col-md-8 col-md-offset-2">
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <h4><strong>Edit User Details</strong></h4>
+        </div>
+        <div class="panel-body">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{user_form.as_p}}
+                </table>
+                <br>
+                <input type="submit" class="btn btn-primary btn-lg" value="Update User">
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

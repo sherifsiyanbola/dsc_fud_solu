@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-sm-12 col-md-8 col-md-offset-2">
+<div class="panel panel-inverse">
+<div class="panel-heading">
+<h3>Budget Years<span><a class="btn btn-primary btn-lg" href="{% url 'project:year_create' %}" style="float:right; margin-top:-10px;">Add new</a></span></h3>
+</div>
+<hr>
+<div class="panel-body">
+  <div class="table-responsive table-bordered">          
+<table class="table table-bordered table-striped table-condensed">
+<thead>
+<tr>
+<th>S/N</th>
+<th>Year</th>
+<th>Description</th>
+<th>Projects</th>
+<th>Date Open</th>
+<th>Closing Date</th>
+</tr>
+</thead>
+{% for year in object_list %}
+<tbody>
+<tr>
+<td>{{forloop.counter}}</td>
+<td><a href="{% url 'project:year_detail' year.id %}">{{year.year}}</a></td>
+<td>{{year.description}}</td>
+<td>{{year.yearProjectCount}}</td>
+<td>{{year.date_open}}</td>
+<td>{{year.date_closed}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</div>
+</div></div>
+{% endblock content %}

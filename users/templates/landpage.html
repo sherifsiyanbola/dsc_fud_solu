@@ -1,0 +1,216 @@
+{% load pwa %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" manifest="users/static/manifest/manifest.webmanifest">
+  <head>
+      {% progressive_web_app_meta %}
+    <title>Mu Taru Mu Gyara</title>
+<!--Meta tags-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Add to home screen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Weather PWA">
+  <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+  <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#2F3BA2">
+  <!--Meta ends -->
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/logo.png' %}"/>
+    <!--====== Favicon Icon ======-->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'land/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'land/css/animate.css' %}"/>
+    <link rel="stylesheet" href="{% static 'land/css/LineIcons.css' %}"/>
+    <link rel="stylesheet" href="{% static 'land/css/owl.carousel.css' %}"/>
+    <link rel="stylesheet" href="{% static 'land/css/owl.theme.css' %}"/>
+    <link rel="stylesheet" href="{% static 'land/css/magnific-popup.css' %}"/>
+    <link rel="stylesheet" href="{% static 'land/css/nivo-lightbox.css' %}"/>
+    <link rel="stylesheet" href="{% static 'land/css/main.css' %}"/>    
+    <link rel="stylesheet" href="{% static 'land/css/responsive.css' %}"/>
+
+  </head>
+  
+  <body>
+
+    <!-- Header Section Start -->
+    <header id="home" class="hero-area">    
+      <div class="overlay">
+        <span></span>
+        <span></span>
+      </div>
+      <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
+        <div class="container">
+          <a href="index.html" class="navbar-brand"><img src="img/logo.png" alt=""></a>       
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="lni-menu"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto w-100 justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#services">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link page-scroll" href="#contact">Contact</a>
+              </li> 
+              <li class="nav-item">
+                <a class="btn btn-singin" href="#">Download App</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>  
+      <div class="container">      
+        <div class="row space-100">
+          <div class="col-lg-6 col-md-12 col-xs-12">
+            <div class="contents">
+              <h2 class="head-title">Mu Taru Mu Gyara! <br>For transparency in Governance</h2>
+              <div class="header-button">
+                <a href="/projectlist" class="btn btn-border-filled">Get Started</a>
+                <a href=""> <img src = "{% static 'land/img/play.png'%}"  width="180px" heigth = "200px" class = "mt-4" /></a>
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-xs-12 p-0">
+            <div class="intro-img">
+              <img src = "{% static 'land/img/join.png'%}"  width="400px" heigth = "400px" />
+            </div>            
+          </div>
+        </div> 
+      </div>             
+    </header>
+    <!-- Header Section End --> 
+
+
+    <!-- Services Section Start -->
+    <section id="services" class="section">
+      <div class="container">
+
+        <div class="row">
+          <!-- Start Col -->
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="services-item text-center">
+            <img src="https://img.icons8.com/ios-glyphs/60/000000/book-and-pencil.png">
+              <h4>Submit Needs</h4>
+            </div>
+          </div>
+          <!-- End Col -->
+          <!-- Start Col -->
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="services-item text-center">
+              <img src="https://img.icons8.com/ios-glyphs/60/000000/comments.png">
+              <h4>Comment on Projects</h4>
+              <p></p>
+            </div>
+          </div>
+          <!-- End Col -->
+          <!-- Start Col -->
+          <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="services-item text-center">
+            <img src="https://img.icons8.com/ios-glyphs/60/000000/track-order.png">
+              <h4>Track your comments and needs</h4>
+              <p></p>
+            </div>
+          </div>
+          <!-- End Col -->
+
+        </div>
+      </div>
+    </section>
+    <!-- Services Section End -->
+
+
+
+    <!-- Business Plan Section Start -->
+    <section id="business-plan">
+      <div class="container">
+
+        <div class="row">
+          <!-- Start Col -->
+          <div class="col-lg-6 col-md-12 pl-0 pt-70 pr-5">
+            <div class="business-item-img">
+              <img src="{% static 'land/img/governor.jpg'%}" class="img-fluid" alt="">
+              <h3> Alhaji Muhammadu Badaru Abubakar </h3> <h6>MON, mni</h6>
+              <p> Executive Governance, Jigawa State. </p>
+            </div>
+          </div>
+          <!-- End Col -->
+          <!-- Start Col -->
+          <div class="col-lg-6 col-md-12 pl-4">
+            <div class="business-item-info">
+              <h4>To foster transparency in Governance</h4>
+              <p></p>
+
+              <a class="btn btn-common" href="#">download</a>
+            </div>
+          </div>
+          <!-- End Col -->
+
+        </div>
+      </div>
+    </section>
+    <!-- Business Plan Section End -->
+          <!-- End Col -->
+          <!-- Start Col -->
+          <div class="col-lg-1">
+            
+          </div>
+          <!-- End Col -->
+          <!-- Start Col -->
+
+          <!-- End Col -->
+          <!-- Start Col -->
+          <div class="col-lg-1">
+          </div>
+          <!-- End Col -->
+
+        </div>
+        <!-- End Row -->
+      </div>
+    </section>
+    <!-- Contact Us Section End -->
+
+    <!-- Footer Section Start -->
+    <footer>
+      <!-- Footer Area Start -->
+      <section id="footer-Content">
+        <div class="container">
+          <!-- Start Row -->
+          <div class="row">
+          </div>
+      <!-- Copyright End -->
+      </section>
+      <!-- Footer area End -->
+      
+    </footer>
+    <!-- Footer Section End --> 
+
+
+    <!-- Go To Top Link -->
+    <a href="#" class="back-to-top">
+      <i class="lni-chevron-up"></i>
+    </a> 
+
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="loader" id="loader-1"></div>
+    </div>
+    <!-- End Preloader -->
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="{% static 'land/js/jquery-min.js' %}"></script>
+    <script src="{% static 'land/js/popper.min.js' %}"></script>
+    <script src="{% static 'land/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'land/js/owl.carousel.js' %}"></script>      
+    <script src="{% static 'land/js/jquery.nav.js' %}"></script>    
+    <script src="{% static 'land/js/scrolling-nav.js' %}"></script>    
+    <script src="{% static 'land/js/jquery.easing.min.js' %}"></script>     
+    <script src="{% static 'land/js/nivo-lightbox.js' %}"></script>     
+    <script src="{% static 'land/js/jquery.magnific-popup.min.js' %}"></script>      
+    <script src="{% static 'land/js/main.js' %}"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-sm-12 col-md-8 col-md-offset-2">
+<div class="panel panel-inverse">
+<div class="panel-heading">
+<h3>List of LGA's<span><a class="btn btn-primary btn-lg" href="{% url 'lga:lga_create' %}" style="float:right; margin-top:-10px;">Add new</a></span></h3>
+</div>
+<hr>
+<div class="panel-body">
+  <div class="table-responsive table-bordered">          
+<table class="table table-bordered table-striped table-condensed">
+<thead>
+<tr>
+<th>S/N</th>
+<th>Name</th>
+<th>Projects</th>
+</tr>
+</thead>
+{% for lga in object_list %}
+
+<tbody>
+<tr>
+<td>{{forloop.counter}}</td>
+<td><a href="{% url 'lga:lga_detail' lga.id %}">{{lga.name}}</a></td>
+<td>{{lga.lgaProjectCount}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</div>
+</div></div>
+{% endblock content %}

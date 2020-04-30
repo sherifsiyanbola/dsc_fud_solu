@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="col-sm-12 col-md-12">
+
+    <div class="panel panel-default">
+    <div class="panel-heading">
+            <h5><strong>Comments</strong></h5>
+            </div>
+                    <div class="panel-body">
+<div class="table-responsive">
+                <table class="table table-bordered table-condensed" id="table_id">
+                    <thead>
+                        <tr><th>S/N</th>
+                            <th>Text</th>
+                            <th>Project</th>
+                            <th>Picture</th>
+                            <th>Created</th>
+                            <th>Submitted By</th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for report in object_list %}
+                        <tr>
+                        <td>{{forloop.counter}}</td>
+                            <td><a href="{% url 'project:report_detail' report.id %}">{{report.text|truncatewords:"10"}}</a></td>
+                            <td>{{report.project}}</td>
+                            <td> <a href="media/{{report.picture}}">Image</a></td>
+                            <td>{{report.created}}</td>
+                            <td>{{report.submitted_by}}</td>
+                            <td>{{report.phone}}</td>
+                            <td>{{report.status}}</td>
+
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+</div>{% endblock %}

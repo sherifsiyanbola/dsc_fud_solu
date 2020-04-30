@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="get" class="form-inline">
+<label for="id_created_min">From</label> <input type="text" name="created_min" id="id_created_min" placeholder="yyyy-mm-dd" class="form-control">
+<label for="id_created_max">To</label> <input type="text" name="created_max" id="id_created_max" placeholder="yyyy-mm-dd"  class="form-control">
+    <button type="submit" class="btn btn-success">Search</button>&nbsp;<a href="{% url 'project:governor_projects' %}" class="btn btn-info">Refresh</a>
+  </form>
+
+
+<div class="col-sm-12 col-md-12">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+            <h5><strong>Project</strong></h5>
+            </div>
+                    <div class="panel-body">
+        <div class="table-responsive">
+                <table class="table table-bordered table-condensed" id="example">
+                    <thead>
+                        <tr><th>S/N</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Ministry</th>
+                            <th>LGA</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Submitted By</th>
+                            <th>Phone No.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+ {% for project in filter.qs %}                        <tr>
+                        <td>{{forloop.counter}}</td>
+                            <td><a href="{% url 'project:project_detail' project.id %}">{{project.title}}</a></td>
+                            <td>{{project.description|truncatewords:"8"}}</td>
+                            <td>{{project.ministry}}</td>
+                            <td>{{project.lga}}</td>
+                            <td>{{project.date}}</td>
+                            <td>{{project.status}}</td>
+                            <td>{{project.submitted_by}}</td>
+                            <td>{{project.phone}}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+</div>{% endblock %}
+
+

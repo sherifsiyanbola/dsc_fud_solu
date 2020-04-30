@@ -1,0 +1,170 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<!--Ministry specific stats-->
+{% if user.is_ministryuser %}
+   <div class = "panel panel-default">
+<div class="panel-heading">
+<h4>Stats</h4>
+</div>
+<div class="panel-body"> 
+<div class="row">
+<div class="col-sm-12 col-md-4">
+    <div class="panel panel-default" style="background-color:#f39c12; color:white">
+    <div class ="panel-body">
+    <h1>Projects {{min_all_projects}}</h1>
+    </div>
+    </div>
+    </div>
+
+
+<div class="col-sm-12 col-md-4">
+    <div class="panel panel-default" style="background-color:#00a65a; color:white">
+    <div class ="panel-body">
+    <h1>Comments {{min_all_comments}}</h1>
+    </div>
+    </div>
+    </div>
+
+<div class="col-sm-12 col-md-4">
+    <div class="panel panel-default" style="background-color:#dd4b39; color:white">
+    <div class ="panel-body">
+    <h1>Reports {{min_all_reports}}</h1>
+    </div>
+    </div>
+    </div>
+    </div>
+    {% else %}
+
+
+
+
+<div class = "panel panel-default">
+<div class="panel-heading">
+<p>Projects</p>
+</div>
+<div class="panel-body">
+<div class="row">
+<div class="col-sm-12 col-md-3">
+    <div class="panel panel-default" style="background-color:#00c0ef; color:white">
+    <div class ="panel-body">
+    <h1>Unreviewed {{unreviewed_projects}}</h1>
+    </div>
+    </div>
+    </div>
+
+
+<div class="col-sm-12 col-md-3">
+    <div class="panel panel-default" style="background-color:#00a65a; color:white">
+    <div class ="panel-body">
+    <h1>Approved {{approved_projects}}</h1>
+    </div>
+    </div>
+    </div>
+
+<div class="col-sm-12 col-md-3">
+    <div class="panel panel-default" style="background-color:#dd4b39; color:white">
+    <div class ="panel-body">
+    <h1>Disapproved {{disapproved_projects}}</h1>
+    </div>
+    </div>
+    </div>
+
+    <div class="col-sm-12 col-md-3">
+    <div class="panel panel-default" style="background-color:#f39c12; color:white">
+    <div class ="panel-body">
+    <h1>All {{all_projects}}</h1>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+    <!--comments stats-->
+   <div class = "panel panel-default">
+<div class="panel-heading">
+<h4>Comments</h4>
+</div>
+<div class="panel-body"> 
+<div class="row">
+<div class="col-sm-12 col-md-3">
+    <div class="panel panel-default" style="background-color:#00c0ef; color:white">
+    <div class ="panel-body">
+    <h1>Unreviewed {{unreviewed_comments}}</h1>
+    </div>
+    </div>
+    </div>
+
+
+<div class="col-sm-12 col-md-3">
+    <div class="panel panel-default" style="background-color:#00a65a; color:white">
+    <div class ="panel-body">
+    <h1>Approved {{approved_comments}}</h1>
+    </div>
+    </div>
+    </div>
+
+<div class="col-sm-12 col-md-3">
+    <div class="panel panel-default" style="background-color:#dd4b39; color:white">
+    <div class ="panel-body">
+    <h1>Disapproved {{disapproved_comments}}</h1>
+    </div>
+    </div>
+    </div>
+
+    <div class="col-sm-12 col-md-3">
+    <div class="panel panel-default" style="background-color:#f39c12; color:white">
+    <div class ="panel-body">
+    <h1>All {{all_comments}}</h1>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+<!--Reports-->
+   <div class = "panel panel-default">
+<div class="panel-heading">
+<h4>Reports</h4>
+</div>
+<div class="panel-body"> 
+<div class="row">
+<div class="col-sm-12 col-md-3">
+    <div class="panel panel-default" style="background-color:#00c0ef; color:white">
+    <div class ="panel-body">
+    <h1>Unreviewed {{unreviewed_reports}}</h1>
+    </div>
+    </div>
+    </div>
+
+
+<div class="col-sm-12 col-md-3">
+    <div class="panel panel-default" style="background-color:#00a65a; color:white">
+    <div class ="panel-body">
+    <h1>Approved {{approved_reports}}</h1>
+    </div>
+    </div>
+    </div>
+
+<div class="col-sm-12 col-md-3">
+    <div class="panel panel-default" style="background-color:#dd4b39; color:white">
+    <div class ="panel-body">
+    <h1>Disapproved {{disapproved_reports}}</h1>
+    </div>
+    </div>
+    </div>
+
+    <div class="col-sm-12 col-md-3">
+    <div class="panel panel-default" style="background-color:#f39c12; color:white">
+    <div class ="panel-body">
+    <h1>All {{all_reports}}</h1>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endif %}
+    {% endblock %}

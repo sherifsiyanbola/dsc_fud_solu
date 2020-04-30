@@ -1,0 +1,84 @@
+{% extends 'base.html' %} {% block content %}
+{% load static %}
+<div class="row">
+  <div class="col-sm-2 col-md-2">
+    <div class="thumbnail affix d-md-none .d-lg-block">
+      <div class="caption">
+        <h3>Profile Details</h3>
+        <img src = "{% static 'img/ava.png' %}" width ="170px" heigth = "400px" class = "img-responsive"/>
+      </div>
+      Fullname: <span class = "badge badge-success">12</span><br><br>
+      Email: <span class = "badge badge-success">12</span><br><br>
+      Phone Number: <span class = "badge badge-success">12</span><br><br>
+      <p><a href="#" class="btn btn-lg btn-primary" role="button">View</a></p>
+    </div>
+  </div>
+<div class="col-sm-12 col-md-8">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form action="" method="get" role="form">
+                <div class="form-group">
+                Tracking code:<input type="text" placeholder="your phone number" name="phone" id="id_title" class="form-control">
+                </div> 
+                <div class="form-group">
+                Title:<input type="text" placeholder="project title" name="title" id="id_title" class="form-control">
+                </div>   
+                <div class="form-group">
+                LGA:<select class="form-control" name="lga" id="id_lga" value={{form.lga}}
+                </div>
+                <div class="form-group">
+                Ministry: <select class=" form-control " name="ministry " id="id_ministry " value={{form.ministry}}
+                </div>
+                <div class="form-group">
+                Date:<input class="form-control" placeholder="yyyy-mm-dd" type="text" name="date"
+                    id="id_date">
+                    </div>
+                <button class="btn btn-success" type="submit"><i class="fas fa-search"></i> search</button>
+            </form>
+
+            <hr>
+
+        </div>
+    </div>
+</div>
+  <div class="col-sm-2 col-md-2">
+    <div class="thumbnail affix d-md-none .d-lg-block">
+      <div class="caption">
+        <h3>My submission statistics</h3>
+        <img src = "{% static 'img/stat.jpg' %}" width ="170px" heigth = "400px" class = "img-responsive"/>
+      </div>
+      Needs: <span class = "badge badge-success">12</span><br><br>
+      Comments: <span class = "badge badge-success">12</span><br><br>
+      Reports: <span class = "badge badge-success">12</span><br><br>
+      Needs: <span class = "badge badge-success">12</span><br><br><br>
+      <p><a href="#" class="btn btn-lg btn-primary" role="button">View All</a></p>
+    </div>
+  </div>
+  
+</div>
+
+ <div class = "row">
+    <div class = "col-md-2"></div>
+    
+      <div class="col-md-8">
+      {% for project in filter.qs %}
+    
+
+    <div class="panel panel-default">
+    <div class="panel-heading">
+            <h4><strong>{{project.title}}</strong><span style="font-size:15px;"> - {{project.date}}</span></h4>
+    </div>
+        <div class="panel-body">
+
+            <h3>{{project.description}}</h3>
+            <h5><i class="fas fa-landmark"></i> {{project.ministry}}</h5>
+            <h5><i class="fas fa-map-marked-alt"></i> {{project.lga}}</h5>
+            <a href="{% url 'project:comment_create' project.id %}" class="btn btn-primary"><i class="fas fa-comment"></i> Comment</a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+      
+    <div class = "col-md-2"></div>  
+  </div> 
+{% endblock %}

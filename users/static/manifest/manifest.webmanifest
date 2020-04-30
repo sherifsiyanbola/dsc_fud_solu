@@ -1,0 +1,16 @@
+{
+    "name": "Mu Taru Mu Gyara",
+    "short_name": "Mu Gyara",
+    "start_url": "/",
+    "display": "standalone",
+    "background-color": "#fff",
+    "description": "Mu Taru Mu Gyara",
+    "icons":[
+        {
+            "src": "../img/icon-512x512.png",
+            "sizes": "512 x 512",
+            "type": "image/png"
+        }
+    ],
+    "splash_screen":"../img/splash.png"
+}
