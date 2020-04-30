@@ -1,5 +1,5 @@
 How to access App:
-The App can be accesed via the link below
+The App can be accesed via
 http://mutaru.herokuapp.com/
 
 
