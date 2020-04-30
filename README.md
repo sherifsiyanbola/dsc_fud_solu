@@ -1,9 +1,8 @@
 
 Citizen - Government Interaction Platform.
 
-mutaru mu gyara is a platform that serve as communication medium between government and their citizenz.
-it ease the way people makes enquiries and track their project from various sector. 
-the most facing problem and challenges in our locality is corruption, with Mutaru Mu Gyara is going to solve this worsen burden.
+mutaru mu gyara is a platform that serve as communication medium between government and the citizen.
+It eases the way people makes enquiries and track their project from various sector. 
 
 The platform provides citizens with the following:
 
