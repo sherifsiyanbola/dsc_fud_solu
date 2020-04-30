@@ -1,3 +1,7 @@
+How to access App:
+The App can be accesed via the link below
+http://mutaru.herokuapp.com/
+
 
 Citizen - Government Interaction Platform.
 
