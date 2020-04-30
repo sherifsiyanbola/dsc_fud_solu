@@ -5,7 +5,7 @@ django-progressive-web-app==0.1.1
 django-crispy-forms
 pytz==2018.9
 sqlparse==0.3.0
-gunicorn==19.3.0
+gunicorn==19.5.0
 psycopg2
 dj-database-url==0.5.0
 static==1.1.1
